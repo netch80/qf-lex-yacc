@@ -9,11 +9,11 @@ void yyerror(char *);
 %}
 
 %%
-segment    {
-    return PARAMS_FUNC_SEGMENT;
-}
 [a-zA-Z_][a-zA-Z0-9_]* {
-	yylval.token_str_value = yytext;
+    if (!strcasecmp(yytext, "segment")) {
+        return PARAMS_FUNC_SEGMENT;
+    }
+    yylval.token_str_value = strdup(yytext);
     return IDENTIFIER;
 }
 [0-9]+                 {

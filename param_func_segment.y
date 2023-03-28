@@ -41,7 +41,7 @@ statement:
 	PARAMS_FUNC_SEGMENT segment {        
         $$.command = "statement";
         $$.list = $2;
-		printf("Parsed: statement");
+		printf("Parsed: statement\n");
 	}
 	;
 	
@@ -98,6 +98,7 @@ int main(void) {
         }
         node = node->next;
     }
+    putchar('\n');
             
 	return 0;
 }
